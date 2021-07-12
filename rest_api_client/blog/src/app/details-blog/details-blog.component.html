@@ -1,0 +1,157 @@
+<!-- 
+<!-- <html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="colorlib.com">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500" rel="stylesheet" />
+  </head>
+  <body>
+    <div>
+      <form>
+        <h1>cree un blog</h1>
+      <input type="text" name="titre"  [(ngModel)]="titre"> 
+      <input type="text"  name="contenu"  [(ngModel)]="contenu"> 
+      <input type="file" name="image"  [(ngModel)]="image"> 
+      <button (click)="save()">cree</button>
+      </form>
+      
+    </div>
+<div  class="card-deck bg-overlay-9 section-padding-100-50">
+    <div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="section-heading text-center">
+                <span></span>
+                <span></span>
+                <h4 style="text-align: center;">          Top blog pour découvrir  </h4>
+                <p>Trouver rapidement un blog que vous preferez </p>
+            </div>
+        </div>
+    </div><br>
+    <div class="container">
+        <div class="card" *ngFor="let blog of all_blogs">
+          <div class="card-header">
+            <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
+          </div>
+          <div class="card-body">
+            <span class="tag tag-teal">{{blog.titre}}</span>
+            <h4>
+                <a>{{blog.contenu}}</a>
+            </h4>
+            <p>    
+            </p>
+            <div class="user">
+              <img src="{{blog.image}}" alt="user" />
+              <div class="user-info">
+                <h5>{{blog.realisateur.titre}}</h5>
+                <small>
+                    </small>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div></div>
+</div>
+</body>
+</html> -->
+
+  <!-- Card -->
+  <!--/.Card-->
+  <!-- <!DOCTYPE html>-->
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Blog Home</title>
+    </head>
+    <body>
+        <app-menu></app-menu>
+        <header class="py-5 bg-light border-bottom mb-4">
+            <div class="container">
+                <div class="text-center my-5">
+                    <h1 class="fw-bolder">Welcome to Blog Home!</h1>
+                    <p class="lead mb-0"></p>
+                </div>
+            </div>
+        </header>
+        <!-- Page content-->
+        <div class="container">
+            <div class="row">
+                <!-- Blog entries-->
+                <div class="col-lg-8">
+                    <!-- Nested row for non-featured blog posts-->
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <!-- Blog post-->
+                            <div class="card mb-4">
+                                <a href="#!"><img class="card-img-top" src="{{blog.image}}" alt="..." /></a>
+                                <div class="card-body">
+                                    <div class="small text-muted"></div>
+                                    <h2 class="card-title h4">{{blog.titre}}</h2>
+                                    <p class="card-text">{{blog.contenu}}</p>
+                                    <a class="btn btn-primary" >back →</a>
+                                </div>
+                            </div>
+                           
+                        </div>
+                       
+                    </div>
+                    <nav aria-label="Pagination">
+                        <hr class="my-0" />
+                        <ul class="pagination justify-content-center my-4">
+                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
+                            <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#!">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#!">3</a></li>
+                            <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
+                            <li class="page-item"><a class="page-link" href="#!">15</a></li>
+                            <li class="page-item"><a class="page-link" href="#!">Older</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- Side widgets-->
+                <div class="col-lg-4">
+                    <!-- Search widget-->
+                    <div class="card mb-4">
+                        <div class="card-header">Add Comment</div>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="Enter title blog..." aria-label="Enter search term..." aria-describedby="button-search" name="contenu"  [(ngModel)]="contenu" />
+                            </div><br>
+                            <div class="input-group">
+                              <input class="form-control" type="text" placeholder="Enter description..." aria-label="Enter search term..." aria-describedby="button-search"name="email"  [(ngModel)]="email" /><button class="btn btn-primary" id="button-search" type="button" (click)="addComment()">Go!</button> </div>
+                        </div>
+                    </div>
+                    <!-- Categories widget-->
+                    <div class="card mb-4">
+                        <div class="card-header">Comments</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6"  *ngFor="let c of all">
+                                   <p>{{c.contenu}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Side widget-->
+                    <div class="card mb-4">
+                        <div class="card-header"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html> 
